@@ -99,9 +99,11 @@ getEmpleado(3).then(empleado =>{
 
 // promesas anidadas (encadenadas
 getEmpleado(10).then(empleado =>{
+    //para que no este
     return getSalario(empleado)
 }).then(salario => {
     console.log(salario);
+    //cacha cualquier error ya sea de salario o de empleado
 }).catch(err => {
         console.log(err);
     }
