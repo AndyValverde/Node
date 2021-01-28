@@ -2,13 +2,13 @@
 const fs = require('fs');
 //datos
   //Promesa que va a ser llamada en otros archivos
-  let crearArchivo = (base) => {
+  let crearArchivo = (base,limite) => {
       return new Promise((resolve,reject)=>{
           //Verifica si es un numero
         if(!Number(base)) {reject(`No es '${base}'un numero `)}
         else{
             let data ='';
-            for(let i = 1; i<= 10; i++){
+            for(let i = 1; i<= limite; i++){
                 //esto guarda las multiplicaciones
             data += (`${base} * ${i} = ${base*i} \n`);
             }

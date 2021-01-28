@@ -12,7 +12,18 @@ let argsv = require('yargs').command('listar','mensaje',{
         alias: 'l',
         default: 10 // valor por defecto
     }
+}).command('crear','mensaje',{
+    base: {
+        demand: true,//forsozo
+        alias: 'b'
+    },
+    limite : { 
+        alias: 'l',
+        default: 10 // valor por defecto
+    }
 }).help().argv;
+
+
 let comando = argsv._[0];
 console.log(argsv._[0]);
 switch(comando){
@@ -20,7 +31,7 @@ switch(comando){
         listarTabla(argsv.base,argsv.limite).then(tabla => console.log(tabla)).catch(err => console.log(err));
         break;
     case 'crear':
-        crearArchivo(argsv.base).then(archivo => {
+        crearArchivo(argsv.base,argsv.limite).then(archivo => {
             console.log(archivo);
         }).catch(err => console.log(err));
         break;
