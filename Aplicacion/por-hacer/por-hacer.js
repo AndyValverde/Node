@@ -1,5 +1,6 @@
 const fs = require('fs');
-let listadoPorHacer = [];
+// puede estar vacio porque se inicializa más adelante
+let listadoPorHacer;
 const guardarDB = () => {
     //combierte en formato json
     let data = JSON.stringify(listadoPorHacer);
@@ -8,7 +9,18 @@ const guardarDB = () => {
     });
 }
 
+const cargarDB = () => {
+    try{
+        //recupera un Json y en automatico lo convierte en objeto javascript
+        listadoPorHacer = require('../db/data.json');
+    }
+    catch{
+        listadoPorHacer = [];
+    }
+    
+}
 const crear = (descripcion) => {
+    cargarDB();
     let porHacer = {
         descripcion,
         completado: false
