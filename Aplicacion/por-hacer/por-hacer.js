@@ -19,6 +19,11 @@ const cargarDB = () => {
     }
     
 }
+
+const getLista = () => {
+    cargarDB();
+    return listadoPorHacer;
+}
 const crear = (descripcion) => {
     cargarDB();
     let porHacer = {
@@ -32,5 +37,6 @@ const crear = (descripcion) => {
 }
 
 module.exports = {
-    crear
+    crear,
+    getLista
 }
