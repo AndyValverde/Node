@@ -48,8 +48,20 @@ const crear = (descripcion) => {
     return porHacer;
 }
 
+const borrar = (descripcion) => {
+    cargarDB();
+    let index = listadoPorHacer.findIndex(tarea => tarea.descripcion === descripcion);
+    if(index >= 0){
+        //elimina un elemento a partir del indice indicado
+        listadoPorHacer.splice(index,1);
+    }
+    guardarDB();
+    
+}
+
 module.exports = {
     crear,
     getLista,
-    actualizar
+    actualizar,
+    borrar
 }

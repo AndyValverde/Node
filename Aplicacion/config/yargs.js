@@ -16,6 +16,12 @@ command('crear','Crear un elemento por hacer',{
         default: true,
         desc: 'Marcado como completado o pendiente la tarea'
     }
+}).command('borrar',"Borrar un elemento de la lista",{
+    descripcion : {
+        demand: true,
+        alias: 'd',
+        desc: 'Descripcion de la tarea por hacer'
+    }
 }).help().argv;
 
 module.exports = {
