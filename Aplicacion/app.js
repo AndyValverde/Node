@@ -1,6 +1,6 @@
 //const argv = require('yargs').argv;
 const argv = require('./config/yargs').argv;
-const {crear, getLista} = require('./por-hacer/por-hacer');
+const {crear, getLista, actualizar} = require('./por-hacer/por-hacer');
 const colors = require('colors');
 
 console.log(argv);
@@ -23,6 +23,8 @@ switch(commando){
         break;
     case 'actualizar':
         console.log('Actualizar una tarea');
+
+        actualizar(argv.descripcion,argv.completado);
         break;
     default:
         console.log('Ese comando no existe');
